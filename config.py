@@ -17,6 +17,9 @@ from flask import Flask
 
 # 核心设置，包括加密密钥和设置sqlalchemy自动提交
 class Config:
+    # 模板来源--GalaCoding
+    ORIGIN_SOURCE = 'GalaCoding'
+
     # 散列值和安全令牌密钥设置
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string!!!'
 
