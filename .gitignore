@@ -103,3 +103,6 @@ $RECYCLE.BIN/
 
 # PyCharm
 .idea
+
+# db
+data.sqlite
