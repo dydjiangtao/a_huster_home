@@ -28,13 +28,13 @@ manager.add_command("shell", Shell(make_context=make_shell_context))
 # 添加数据迁移命令
 manager.add_command('db', MigrateCommand)
 
-# 添加测试命令
-@manager.command
-def test():
-    '''Run the unit tests.'''
-    import unittest
-    tests = unittest.TestLoader().discover('tests')
-    unittest.TextTestRunner(verbosity=2).run(tests)
+# # 添加测试命令  -- PyCharm下运行manage.py要注释此段test，否则会运行测试模块
+# @manager.command
+# def test():
+#     '''Run the unit tests.'''
+#     import unittest
+#     tests = unittest.TestLoader().discover('tests')
+#     unittest.TextTestRunner(verbosity=2).run(tests)
 
 @manager.command
 def update():
