@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-{% macro theme_file(theme, filename) %}
-    /static/themes/{{ theme }}/{{ filename }}
-{% endmacro %}
+{% macro theme_file(theme, filename) %}/static/themes/{{ theme }}/{{ filename }}{% endmacro %}
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8">
@@ -19,7 +17,7 @@
     {% block header %}
     {% endblock %}
 
-    {% set mirror_site = '' %}
+    {% set mirror_site = '//106.14.139.90' %}
     <!-- CSS styles -->
     <!-- {% set theme = 'flatly' %} -->
     {% set theme = 'spacelab' %}
@@ -46,9 +44,11 @@
     <![endif]-->
 
 <!-- Script -->
-<script src="//ajax.useso.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- <script src="//ajax.useso.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script>window.jQuery || document.write(unescape('%3Cscript src="{{ mirror_site }}/static/assets/jquery/jquery-1.11.1.min.js"%3E%3C/script%3E'))</script>
-<script src="//libs.useso.com/js/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<!-- <script src="//libs.useso.com/js/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+<script src="https://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script>$.fn.carousel || document.write(unescape('%3Cscript src="{{ mirror_site }}/static/assets/bootstrap/bootstrap-3.1.1.min.js"%3E%3C/script%3E'))</script>
 
 <script src="{{ mirror_site }}/static/assets/bootstrap/lightbox/ekko-lightbox.js"></script>
