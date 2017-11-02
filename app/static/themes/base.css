@@ -1,7 +1,7 @@
 /* BootStrap hacks */
 body {
   padding-top: 70px;
-  padding-bottom: 40px;
+  padding-bottom: 15px;
 }
 .navbar .nav .active > a {
   border-top: 2px #fff solid;

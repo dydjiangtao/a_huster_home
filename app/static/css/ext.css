@@ -1,0 +1,7 @@
+.main_body {
+  min-height: 78vh;
+}
+.page_bar {
+  position: fixed;
+  bottom: 10vh;
+}

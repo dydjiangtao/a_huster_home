@@ -29,6 +29,7 @@
     <link href="{{ mirror_site }}/static/assets/bootstrap/lightbox/dark.css" rel="stylesheet"/>
 
     <link href="{{ mirror_site }}/static/themes/base.css" rel="stylesheet"/>
+    <link href="{{ mirror_site }}/static/css/ext.css" rel="stylesheet"/>
     {% set theme_css = theme_file(theme, "styles.css") %}
     {% if theme_css %}
     <link href="{{ mirror_site }}{{ theme_css }}" rel="stylesheet"/>
@@ -182,7 +183,7 @@ $(document).ready(function() {
   </div>
 </div>
 
-<div class="container">
+<div class="container main_body">
     {% for flash_message in get_flashed_messages() %}
         <div class="alert alert-warning" style="width: 500px;">
             <button class="close" type="button" data-dismiss="alert">&times;</button>
@@ -198,10 +199,10 @@ $(document).ready(function() {
     <div class="row">
       <div class="col-lg-12">
         <hr/>
-        <p><i class="icon-heart"></i>
+        <p align="center"><i class="icon-heart"></i>
             <span class=""> A-HUSTER-HOME @2017 <a href="https://github.com/dydjiangtao"><code>A-HUSTER-HOME</code></a>. </span>
-            Powered by <a href="http://flask.pocoo.org/"><code>flask</code>.</a>
-            Code hosted in <a href="https://github.com/dydjiangtao/navdemo"><code>A-HUSTER-HOME</code>.</a>
+{#            Powered by <a href="http://flask.pocoo.org/"><code>flask</code>.</a>#}
+{#            Code hosted in <a href="https://github.com/dydjiangtao/navdemo"><code>A-HUSTER-HOME</code>.</a>#}
         </p>
       </div>
     </div>
