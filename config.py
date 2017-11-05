@@ -13,6 +13,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 from flask import Flask
+from configparser import ConfigParser
 
 
 # 核心设置，包括加密密钥和设置sqlalchemy自动提交
@@ -25,6 +26,7 @@ class Config:
 
     # sqlalchemy的自动提交设置
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
 
     # 服务器绑定二级域名 端口 和过滤IP地址设置
     HOST = os.environ.get('WEBSERVER_HOST')
@@ -32,13 +34,21 @@ class Config:
     ACCESSIPS = os.environ.get('WEBSERVER_ACCESSIP')
 
     # 注册发送邮件服务器
-    MAIL_SERVER = os.environ.get('MAIL_SERVER')
-    MAIL_PORT = int(os.environ.get('MAIL_SERVERPORT') or 5000)
-    MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    ## 读取配置
+    mail_conf = ConfigParser()
+    mail_conf.read(os.path.join(root_dir, 'mail.ini'))
+    mail_server = mail_conf.get('qq_mail', 'MAIL_SERVER')
+    mail_username = mail_conf.get('qq_mail', 'MAIL_USERNAME')
+    mail_password = mail_conf.get('qq_mail', 'MAIL_PASSWORD')
+    mail_addr = mail_conf.get('qq_mail', 'MAIL_ADDR')
+    MAIL_SERVER = os.environ.get('MAIL_SERVER') or mail_server
+    MAIL_PORT = int(os.environ.get('MAIL_SERVERPORT') or 465)
+    MAIL_USE_TLS = False
+    MAIL_USE_SSL = True
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME') or mail_username
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') or mail_password
     MAIL_SUBJECT_PREFIX = '[A-HUSTER-HOME]'
-    MAIL_SENDER = 'A-HUSTER-HOME Admin <%s>' % os.environ.get('MAIL_ADDR')
+    MAIL_SENDER = 'A-HUSTER-HOME Admin <%s>' % (os.environ.get('MAIL_ADDR') or mail_username)
 
     POSTS_PER_PAGE = 30
     USERS_PER_PAGE = 30

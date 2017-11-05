@@ -2,6 +2,6 @@
   min-height: 78vh;
 }
 .page_bar {
-  position: fixed;
+  position: absolute;
   bottom: 10vh;
 }

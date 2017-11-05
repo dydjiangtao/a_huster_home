@@ -109,7 +109,7 @@ def config():
 # 添加默认执行启动服务器的命令
 @manager.command
 def default_server():
-    app.run(debug=True, host=Config.ACCESSIPS, port=Config.PORT)
+    app.run(debug=False, host=Config.ACCESSIPS, port=Config.PORT)
 
 # 启动主进程
 if __name__ == '__main__':
